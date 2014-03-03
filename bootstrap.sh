@@ -28,3 +28,7 @@ then
 else
 	echo "vundle already cloned."
 fi
+if [ -d "vundle" ]
+then
+	vim -c BundleInstall -c qa
+fi
