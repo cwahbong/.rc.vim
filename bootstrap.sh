@@ -17,6 +17,19 @@ else
 	ln -s .vim/vimrc $VIMRC_LINK
 fi
 
+# font settings
+if [ ! -d ~/.fonts ]
+then
+	mkdir ~/.fonts
+fi
+cp fonts/*.otf ~/.fonts
+if [ ! -d ~/.fonts.conf.d ]
+then
+	mkdir ~/.fonts.conf.d
+fi
+cp fonts/*.conf ~/.fonts.conf.d
+fc-cache -vf ~/.fonts
+
 if [ ! -d "bundle" ]
 then
 	mkdir bundle

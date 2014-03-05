@@ -9,6 +9,8 @@ set autoindent   " always set autoindenting on
 set listchars=tab:▸\ ,trail:~
 set list
 
+set laststatus=2
+
 " Load vimrc for each plugin.
 runtime! sub_vimrc/*.vimrc
 " Tab key binding
@@ -22,8 +24,8 @@ map <C-t>n :tabnext<CR>
 " Look and feel
 set t_Co=256
 set nu
-set showmode
 set ruler
+set noshowmode
 colorscheme ir_black_p
 
 autocmd VimEnter,WinEnter * setlocal cursorline cursorcolumn

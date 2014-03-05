@@ -14,6 +14,7 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'tpope/vim-fugitive'
+Bundle 'itchyny/lightline.vim'
 
 " Language support
 Bundle 'jnwhiteh/vim-golang'
