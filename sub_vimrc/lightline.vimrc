@@ -14,10 +14,10 @@ let g:lightline = {
 	\ }
 
 function! MyMode()
-	let fname = expand('%:t')
-	return fname =~ 'NERD_tree' ? 'NERDTree' :
-		\ winwidth(0) > 60 ? lightline#mode() : ''
-    endfunction
+	return &filetype == "nerdtree" ? "NERDTree" :
+		\ &filetype == "vundle" ? "Vundle" :
+		\ winwidth(0) > 60 ? lightline#mode() : ""
+endfunction
 
 function! MyModified()
 	if &filetype == "help"
@@ -42,17 +42,16 @@ function! MyReadonly()
 endfunction
 
 function! MyFugitive()
-	if exists('*fugitive#head')
-		let _ = fugitive#head()
-		return strlen(_) ? " " . _ : ''
+	if !exists("*fugitive#head") || &filetype == "vundle"
+		return ""
 	endif
-	return ''
+	let _ = fugitive#head()
+	return strlen(_) ? " " . _ : ''
 endfunction
 
 function! MyFilename()
-	let fname = expand('%:t')
-	if fname =~ 'NERD_tree'
-		return ''
+	if &filetype == "nerdtree" || &filetype == "vundle"
+		return ""
 	endif
 	return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
 		\ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
