@@ -22,7 +22,7 @@ let g:lightline = {
 	\   'filetype': 'MyFiletype',
 	\ },
 	\ 'tab_component_function': {
-	\   'filename_tab': 'MyFilenameTab',
+	\   'filename_tab': 'MyTabFilename',
 	\ },
 	\ 'separator': { 'left': ''},
 	\ 'subseparator': { 'left': '', 'right': '' },
@@ -32,16 +32,26 @@ function! s:TinyCondition()
 	return winwidth(0) < 66
 endfunction
 
-function! s:SpecialFileType()
-	if &filetype == "nerdtree"
+function s:SpecialFileTypeByString(s)
+	if a:s == "nerdtree"
 		return "NERDTree"
-	elseif &filetype == "vundle"
+	elseif a:s == "vundle"
 		return "Vundle"
-	elseif &filetype == "help"
+	elseif a:s == "help"
 		return "Help"
 	else
 		return ""
 	endif
+endfunction
+
+function! s:SpecialTabFileType(n)
+	let winnr = tabpagewinnr(a:n)
+	let ft = gettabwinvar(a:n, winnr, "&ft")
+	return s:SpecialFileTypeByString(ft)
+endfunction
+
+function! s:SpecialFileType()
+	return s:SpecialFileTypeByString(&ft)
 endfunction
 
 function! MyFileencoding()
@@ -69,10 +79,10 @@ function! MyFugitive()
 	return strlen(_) ? " " . _ : ""
 endfunction
 
-function! MyFilenameTab(count)
-	let s = s:SpecialFileType()
-	let _ = s == "" ? lightline#tab#filename(a:count) : s
-	return (lightline#tab#readonly(a:count) != "" || s != "" ? " " : "") .
-		\ ('' != _ ? _ : "[No Name]") .
-		\ (lightline#tab#modified(a:count) != "" && s == "" ? " +" : "")
+function! MyTabFilename(n)
+	let s = s:SpecialTabFileType(a:n)
+	let _ = lightline#tab#filename(a:n)
+	return (lightline#tab#readonly(a:n) != "" ? " " : "") .
+		\ lightline#tab#filename(a:n) .
+		\ (lightline#tab#modified(a:n) != "" && s == "" ? " +" : "")
 endfunction
