@@ -14,6 +14,23 @@ set showtabline=2
 
 " Load vimrc for each plugin.
 runtime! sub_vimrc/*.vimrc
+
+set timeoutlen=20
+
+" Fast escaping
+map df <Esc>
+map! df <Esc>
+map fd <Esc>
+map! fd <Esc>
+map jk <Esc>
+map! jk <Esc>
+map kj <Esc>
+map! kj <Esc>
+map fj <Esc>
+map! fj <Esc>
+map jf <Esc>
+map! jf <Esc>
+
 " Tab key binding
 map <C-t>c :tabnew<CR>
 map <C-t>q :tabclose<CR>
