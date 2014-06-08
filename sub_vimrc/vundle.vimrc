@@ -21,6 +21,7 @@ Bundle 'altercation/vim-colors-solarized'
 
 " Language support
 Bundle 'jnwhiteh/vim-golang'
+Bundle 'vlaadbrain/gnuplot.vim'
 
 filetype plugin indent on
 
