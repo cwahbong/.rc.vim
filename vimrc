@@ -1,7 +1,6 @@
 set nocompatible " We are vim!
 
 " Filetype is set in sub_vimrc/vundle.vimrc
-syntax on
 
 set autoindent   " always set autoindenting on
 
@@ -36,7 +35,11 @@ set t_Co=256
 set nu
 set ruler
 set noshowmode
-colorscheme ir_black_p
+
+let g:solarized_termcolors=256
+syntax enable
+set background=dark
+colorscheme solarized
 
 autocmd VimEnter,WinEnter * setlocal cursorline cursorcolumn
 
