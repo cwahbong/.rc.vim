@@ -32,7 +32,7 @@ map! jf <Esc>
 
 " Look and feel
 set t_Co=256
-set nu
+set relativenumber
 set ruler
 set noshowmode
 
