@@ -17,7 +17,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'itchyny/lightline.vim'
 
 " Color themes
-Bundle 'altercation/vim-colors-solarized'
+Bundle 'flazz/vim-colorschemes'
 
 " Language support
 Bundle 'jnwhiteh/vim-golang'

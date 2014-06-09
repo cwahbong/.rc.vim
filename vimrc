@@ -36,12 +36,14 @@ set relativenumber
 set ruler
 set noshowmode
 
-let g:solarized_termcolors=256
+autocmd ColorScheme * highlight! link CursorLineNr LineNr
+
 syntax enable
 set background=dark
-colorscheme solarized
+colorscheme grb256
 
-autocmd VimEnter,WinEnter * setlocal cursorline cursorcolumn
+autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
 
 set wildmenu
 set backupdir=~/tmp,.,/var/tmp/vi.recover,/tmp
