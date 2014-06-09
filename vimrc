@@ -71,11 +71,5 @@ else
     set fileencoding=taiwan
 endif
 
-if version >= 700
-  highlight TabLineSel term=bold,underline cterm=bold,underline ctermfg=7 ctermbg=0
-  highlight TabLine    term=bold cterm=bold
-  highlight clear TabLineFill
-end
-
 set secure
 
