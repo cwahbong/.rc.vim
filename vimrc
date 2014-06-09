@@ -17,18 +17,18 @@ runtime! sub_vimrc/*.vimrc
 set timeoutlen=20
 
 " Fast escaping
-map df <Esc>
-map! df <Esc>
-map fd <Esc>
-map! fd <Esc>
-map jk <Esc>
-map! jk <Esc>
-map kj <Esc>
-map! kj <Esc>
-map fj <Esc>
-map! fj <Esc>
-map jf <Esc>
-map! jf <Esc>
+noremap df <Esc>
+noremap! df <Esc>
+noremap fd <Esc>
+noremap! fd <Esc>
+noremap jk <Esc>
+noremap! jk <Esc>
+noremap kj <Esc>
+noremap! kj <Esc>
+noremap fj <Esc>
+noremap! fj <Esc>
+noremap jf <Esc>
+noremap! jf <Esc>
 
 " Look and feel
 set t_Co=256
