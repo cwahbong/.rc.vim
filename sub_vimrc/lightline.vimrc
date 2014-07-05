@@ -7,10 +7,10 @@ let g:lightline = {
 	\              ['fileformat', 'fileencoding', 'filetype'] ],
 	\ },
 	\ 'inactive': {
-	\   'left': [],
+	\   'left': [['filename']],
 	\ },
 	\ 'tab': {
-	\   'active': ['filename_tab'],
+	\   'active': ['filename_active_tab'],
 	\   'inactive': ['filename_tab'],
 	\ },
 	\ 'component_function': {
@@ -22,7 +22,9 @@ let g:lightline = {
 	\   'filetype': 'MyFiletype',
 	\ },
 	\ 'tab_component_function': {
+	\   'mode_tab' : 'MyTabMode',
 	\   'filename_tab': 'MyTabFilename',
+	\   'filename_active_tab': 'MyActiveTabFilename',
 	\ },
 	\ 'separator': { 'left': ''},
 	\ 'subseparator': { 'left': '', 'right': '' },
@@ -62,6 +64,13 @@ function! MyFileformat()
 	return s:TinyCondition() ? "" : &fileformat
 endfunction
 
+function! MyFilename()
+	let filename = expand('%:t')
+	return (&readonly ? " " : "") .
+		\ filename .
+		\ (&modified ? " +" : "")
+endfunction
+
 function! MyFiletype()
 	return s:TinyCondition() ? "" : (strlen(&filetype) ? &filetype : '---')
 endfunction
@@ -85,4 +94,8 @@ function! MyTabFilename(n)
 	return (lightline#tab#readonly(a:n) != "" ? " " : "") .
 		\ lightline#tab#filename(a:n) .
 		\ (lightline#tab#modified(a:n) != "" && s == "" ? " +" : "")
+endfunction
+
+function! MyActiveTabFilename(n)
+	return "@ " . MyTabFilename(a:n)
 endfunction
