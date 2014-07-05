@@ -2,7 +2,8 @@ filetype off
 
 " Init vundle
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+
+call vundle#begin()
 
 " let Vundle manage Vundle
 " REQUIRED
@@ -20,8 +21,11 @@ Bundle 'itchyny/lightline.vim'
 Bundle 'flazz/vim-colorschemes'
 
 " Language support
+Bundle 'cwahbong/LaTeX-Box'
 Bundle 'jnwhiteh/vim-golang'
 Bundle 'vlaadbrain/gnuplot.vim'
+
+call vundle#end()
 
 filetype plugin indent on
 
