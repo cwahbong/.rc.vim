@@ -39,6 +39,8 @@ set ruler
 set noshowmode
 
 autocmd ColorScheme * highlight! link CursorLineNr LineNr
+autocmd ColorScheme * highlight! CursorLine cterm=NONE
+autocmd ColorScheme * highlight! SpellBad ctermfg=160 ctermbg=16 cterm=UNDERLINE
 
 syntax enable
 set background=dark
