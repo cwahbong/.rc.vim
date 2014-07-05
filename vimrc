@@ -59,14 +59,8 @@ set showmatch
 if version >= 600
     set nohlsearch
     " set foldcolumn=2
-    " set foldmethod=syntax
-    set foldmethod=marker
-    set foldlevel=1
 "   set foldtext=/^/=>
     set encoding=utf-8
-    " set fileencoding=big5
-    " set termencoding=big5
-    " set encoding=big5
     " set fileencodings=latin,big5,ucs-bom,utf-8,sjis,big5
     set fileencodings=ucs-bom,utf-8,sjis,big5,latin1
 else
