@@ -1,5 +1,7 @@
 set nocompatible " We are vim!
 
+let g:tex_flavor="latex"
+
 " Filetype is set in sub_vimrc/vundle.vimrc
 
 set autoindent   " always set autoindenting on
