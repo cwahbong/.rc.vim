@@ -14,22 +14,6 @@ runtime! plugin_rc/*.vimrc
 " Load vimrc
 runtime! sub_rc/*.vimrc
 
-set timeoutlen=20
-
-" Fast escaping
-noremap df <Esc>
-noremap! df <Esc>
-noremap fd <Esc>
-noremap! fd <Esc>
-noremap jk <Esc>
-noremap! jk <Esc>
-noremap kj <Esc>
-noremap! kj <Esc>
-noremap fj <Esc>
-noremap! fj <Esc>
-noremap jf <Esc>
-noremap! jf <Esc>
-
 " Look and feel
 set t_Co=256
 
