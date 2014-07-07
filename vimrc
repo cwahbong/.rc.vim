@@ -8,9 +8,6 @@ set autoindent   " always set autoindenting on
 set listchars=tab:▸\ ,trail:~
 set list
 
-set laststatus=2
-set showtabline=2
-
 " Load vimrc for each plugin.
 runtime! plugin_rc/*.vimrc
 
@@ -35,7 +32,6 @@ noremap! jf <Esc>
 
 " Look and feel
 set t_Co=256
-set relativenumber
 
 autocmd ColorScheme * highlight! link CursorLineNr LineNr
 autocmd ColorScheme * highlight! CursorLine cterm=NONE
