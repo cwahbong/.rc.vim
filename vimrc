@@ -1,7 +1,5 @@
 set nocompatible " We are vim!
 
-let g:tex_flavor="latex"
-
 " Filetype is set in sub_vimrc/vundle.vimrc
 
 set autoindent   " always set autoindenting on
@@ -15,6 +13,9 @@ set showtabline=2
 
 " Load vimrc for each plugin.
 runtime! plugin_rc/*.vimrc
+
+" Load vimrc
+runtime! sub_rc/*.vimrc
 
 set timeoutlen=20
 
