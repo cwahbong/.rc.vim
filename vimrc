@@ -4,33 +4,14 @@ set nocompatible " We are vim!
 
 set autoindent   " always set autoindenting on
 
-" Show trailing white space.
-set listchars=tab:▸\ ,trail:~
-set list
-
 " Load vimrc for each plugin.
 runtime! plugin_rc/*.vimrc
 
 " Load vimrc
 runtime! sub_rc/*.vimrc
 
-" Look and feel
+" Always use 256 color terminal
 set t_Co=256
-
-" Do not highlight the cursor line number even specified by the color scheme.
-autocmd ColorScheme * highlight! link CursorLineNr LineNr
-
-" Do not use bold or underlined font even specified by the color scheme.
-autocmd ColorScheme * highlight! CursorLine cterm=NONE
-
-autocmd ColorScheme * highlight! SpellBad ctermfg=160 ctermbg=16 cterm=UNDERLINE
-
-syntax enable
-set background=dark
-colorscheme grb256
-
-autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-autocmd WinLeave * setlocal nocursorline
 
 set wildmenu
 set backupdir=~/tmp,.,/var/tmp/vi.recover,/tmp
@@ -53,4 +34,3 @@ else
 endif
 
 set secure
-
