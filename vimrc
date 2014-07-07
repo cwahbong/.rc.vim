@@ -17,8 +17,12 @@ runtime! sub_rc/*.vimrc
 " Look and feel
 set t_Co=256
 
+" Do not highlight the cursor line number even specified by the color scheme.
 autocmd ColorScheme * highlight! link CursorLineNr LineNr
+
+" Do not use bold or underlined font even specified by the color scheme.
 autocmd ColorScheme * highlight! CursorLine cterm=NONE
+
 autocmd ColorScheme * highlight! SpellBad ctermfg=160 ctermbg=16 cterm=UNDERLINE
 
 syntax enable
