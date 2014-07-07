@@ -14,7 +14,7 @@ set laststatus=2
 set showtabline=2
 
 " Load vimrc for each plugin.
-runtime! sub_vimrc/*.vimrc
+runtime! plugin_rc/*.vimrc
 
 set timeoutlen=20
 
