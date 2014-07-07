@@ -36,8 +36,6 @@ noremap! jf <Esc>
 " Look and feel
 set t_Co=256
 set relativenumber
-set ruler
-set noshowmode
 
 autocmd ColorScheme * highlight! link CursorLineNr LineNr
 autocmd ColorScheme * highlight! CursorLine cterm=NONE
