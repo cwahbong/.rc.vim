@@ -22,7 +22,7 @@ function! MyFoldText()
 
 	let foldchar = matchstr(&fillchars, 'fold:\zs.')
 	let foldtextend = (winwidth(0) > 20 ? FoldTextLineCount() . repeat(foldchar, 4) : '')
-	let foldtextstart = strpart(fold_level_text . ' ' . fold_title_text, 0,
+	let foldtextstart = strpart(fold_title_text, 0,
 		\ min([(winwidth(0) * 2) / 3, winwidth(0) - strlen(foldtextend) - &foldcolumn - &numberwidth]) - 1) . ' '
 	let foldtextlength = strlen(foldtextstart) + strlen(foldtextend) + &foldcolumn + &numberwidth
 	return foldtextstart . repeat(foldchar, winwidth(0) - foldtextlength) . foldtextend
