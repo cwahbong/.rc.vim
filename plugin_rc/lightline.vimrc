@@ -2,12 +2,13 @@ let g:lightline = {
 	\ 'colorscheme': 'wombat',
 	\ 'active': {
 	\   'left': [ [ 'mode', 'paste' ],
-	\             [ 'fugitive'] ],
+	\             [ 'fugitive'],
+	\             [ 'filename_active'] ],
 	\   'right': [ ['lineinfo'], ['percent'],
 	\              ['fileformat', 'fileencoding', 'filetype'] ],
 	\ },
 	\ 'inactive': {
-	\   'left': [['filename']],
+	\   'left': [['filename_inactive']],
 	\ },
 	\ 'tab': {
 	\   'active': ['filename_active_tab'],
@@ -18,7 +19,8 @@ let g:lightline = {
 	\   'fugitive': 'MyFugitive',
 	\   'fileencoding': 'MyFileencoding',
 	\   'fileformat': 'MyFileformat',
-	\   'filename': 'MyFilename',
+	\   'filename_active': 'MyFilenameActive',
+	\   'filename_inactive': 'MyFilename',
 	\   'filetype': 'MyFiletype',
 	\ },
 	\ 'tab_component_function': {
@@ -29,10 +31,6 @@ let g:lightline = {
 	\ 'separator': { 'left': ''},
 	\ 'subseparator': { 'left': '', 'right': '' },
 	\ }
-
-function! s:TinyCondition()
-	return winwidth(0) < 66
-endfunction
 
 function s:SpecialFileTypeByString(s)
 	if a:s == "nerdtree"
@@ -57,11 +55,11 @@ function! s:SpecialFileType()
 endfunction
 
 function! MyFileencoding()
-	return s:TinyCondition() ? "" : (strlen(&fenc) ? &fenc : &enc)
+	return cwahbong#layout_width(0) == "narrow" ? "" : (strlen(&fenc) ? &fenc : &enc)
 endfunction
 
 function! MyFileformat()
-	return s:TinyCondition() ? "" : &fileformat
+	return cwahbong#layout_width(0) == "narrow" ? "" : &fileformat
 endfunction
 
 function! MyFilename()
@@ -71,8 +69,12 @@ function! MyFilename()
 		\ (&modified ? " +" : "")
 endfunction
 
+function! MyFilenameActive()
+	return cwahbong#layout_width(0) == "wide" ? MyFilename() : ""
+endfunction
+
 function! MyFiletype()
-	return s:TinyCondition() ? "" : (strlen(&filetype) ? &filetype : '---')
+	return cwahbong#layout_width(0) == "narrow" ? "" : (strlen(&filetype) ? &filetype : '---')
 endfunction
 
 function! MyMode()
@@ -81,7 +83,7 @@ function! MyMode()
 endfunction
 
 function! MyFugitive()
-	if !exists("*fugitive#head") || &filetype == "vundle" || s:TinyCondition()
+	if !exists("*fugitive#head") || &filetype == "vundle" || cwahbong#layout_width(0) == "narrow"
 		return ""
 	endif
 	let _ = fugitive#head()
