@@ -5,26 +5,23 @@ set background=dark
 set listchars=tab:▸\ ,trail:~
 set list
 
-function! FoldTextLineCount()
-	let lines_count = v:foldend - v:foldstart + 1
-	if lines_count >= 100000
-		return '| # ***** |'
-	elseif lines_count >= 10000
-		return '| # ' . printf("%s k", lines_count / 1000) . ' |'
-	else
-		return '| # ' . printf("%4s", lines_count) . ' |'
-	endif
-endfunction
-
 function! MyFoldText()
-	let fold_title_text = matchstr(foldtext(), ':\ \zs.*')
-	let fold_level_text = '+' . (v:foldlevel > 2 ? '<' . v:foldlevel . '>' : printf('%-3s', repeat('-', v:foldlevel)))
-
 	let foldchar = matchstr(&fillchars, 'fold:\zs.')
-	let foldtextend = (winwidth(0) > 20 ? FoldTextLineCount() . repeat(foldchar, 4) : '')
-	let foldtextstart = strpart(fold_title_text, 0,
-		\ min([(winwidth(0) * 2) / 3, winwidth(0) - strlen(foldtextend) - &foldcolumn - &numberwidth]) - 1) . ' '
-	let foldtextlength = strlen(foldtextstart) + strlen(foldtextend) + &foldcolumn + &numberwidth
+	let wtext = cwahbong#layout_width(0)
+
+	let fold_title_text = matchstr(foldtext(), ':\ \zs.*')
+
+	let foldtextend = ''
+	if wtext != 'narrow'
+		let fill_end = repeat(foldchar, wtext == 'wide' ? 4 + (winwidth(0) - 80) / 4 : 4)
+		let lines_count = v:foldend - v:foldstart + 1
+		let fold_linecount_text = '| # ' . cwahbong#num_4w(lines_count) . ' |'
+		let foldtextend = fold_linecount_text . fill_end
+	endif
+
+	let nonstart_len = strlen(foldtextend) + &foldcolumn + &numberwidth
+	let foldtextstart = strpart(fold_title_text, 0, winwidth(0) - nonstart_len - 2) . ' ' . foldchar
+	let foldtextlength = strlen(foldtextstart) + nonstart_len
 	return foldtextstart . repeat(foldchar, winwidth(0) - foldtextlength) . foldtextend
 endfunction
 set foldtext=MyFoldText()

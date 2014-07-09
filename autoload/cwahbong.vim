@@ -13,3 +13,13 @@ function! cwahbong#layout_width(nr)
 		return 'narrow'
 	endif
 endfunction
+
+function! cwahbong#num_4w(n)
+	if a:n >= 100000
+		return '****'
+	elseif a:n >= 10000
+		return printf("%d k", a:n / 1000)
+	else
+		return printf("%4d", a:n)
+	endif
+endfunction
