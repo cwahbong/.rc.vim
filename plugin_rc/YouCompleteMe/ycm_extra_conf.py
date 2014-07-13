@@ -118,7 +118,7 @@ def FlagsForFile( filename, **kwargs ):
     ft = kwargs["client_data"]["&filetype"]
     if ft in ft_flags:
       tflags = tflags + ft_flags[ft]
-    final_flags = MakeRelativePathsInFlagsAbsolute( flags, relative_to )
+    final_flags = MakeRelativePathsInFlagsAbsolute( tflags, relative_to )
 
   return {
     'flags': final_flags,
