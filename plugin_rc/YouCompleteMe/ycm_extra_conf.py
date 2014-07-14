@@ -16,7 +16,8 @@ flags = [
 ft_flags = {
     "c": [
         '-std=c99',
-        '-x c',
+        '-x',
+        'c',
     ],
     "cpp": [
         '-Wc++98-compat',
@@ -24,7 +25,8 @@ ft_flags = {
         '-Wno-variadic-macros',
         '-fexceptions',
         '-std=c++11',
-        '-x c++',
+        '-x',
+        'c++',
     ],
 }
 
