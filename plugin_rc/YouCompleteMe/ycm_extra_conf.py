@@ -20,7 +20,6 @@ ft_flags = {
         'c',
     ],
     "cpp": [
-        '-Wc++98-compat',
         '-Wno-long-long',
         '-Wno-variadic-macros',
         '-fexceptions',
