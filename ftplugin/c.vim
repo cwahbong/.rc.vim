@@ -1,4 +1,4 @@
-if exists("b:did_ftplugin") || &filetype != "cpp"
+if exists("b:did_ftplugin") || (&filetype != "c" && &filetype != "cpp")
 	finish
 endif
 
