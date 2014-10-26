@@ -3,32 +3,29 @@ set -efu
 
 VIM_DEFAULT_PREFIX=$HOME"/.vim"
 
-vundle_setup(){
-	if [ ! -d "bundle" ]
-	then
-		mkdir bundle
+CONFIG_INSTALL () {
+	VIM_PREFIX=${1:-$VIM_DEFAULT_PREFIX}
+
+	BUNDLE_PATH=${VIM_PREFIX}/bundle
+	if [ ! -d "$BUNDLE_PATH" ]; then
+		mkdir -p $BUNDLE_PATH
 	fi
-	cd bundle
-	if [ ! -d "vundle" ]
-	then
-		git clone https://github.com/gmarik/vundle.git
+
+	VUNDLE_PATH="${BUNDLE_PATH}/vundle"
+	if [ ! -d "$VUNDLE_PATH" ]; then
+		git clone https://github.com/gmarik/vundle.git $VUNDLE_PATH
 	else
 		echo "vundle already cloned."
 	fi
-}
 
-plugin_setup(){
-	if [ -d "vundle" ]
+	if [ -d "$VUNDLE_PATH" ]
 	then
 		vim -c BundleInstall -c qa
 	fi
-}
 
-CONFIG_INSTALL () {
-	VIM_PREFIX=${1:-$VIM_DEFAULT_PREFIX}
-	vundle_setup
-	plugin_setup
-	ln -s ${VIM_PREFIX} $HOME/.vim
+	if [ ! -s "$HOME/.vim" ]; then
+		ln -s ${VIM_PREFIX} $HOME/.vim
+	fi
 }
 
 CONFIG_HELP () {
