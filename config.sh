@@ -1,10 +1,11 @@
 #!/usr/bin/env sh
-set -efu
+set -u
 
-VIM_DEFAULT_PREFIX=$HOME"/.vim"
+VIM_DEFAULT_PREFIX="${HOME}/.vim"
 
 CONFIG_INSTALL () {
 	VIM_PREFIX=${1:-$VIM_DEFAULT_PREFIX}
+	VIM_CONF="$HOME/.vim"
 
 	BUNDLE_PATH=${VIM_PREFIX}/bundle
 	if [ ! -d "$BUNDLE_PATH" ]; then
@@ -23,14 +24,16 @@ CONFIG_INSTALL () {
 		vim -c BundleInstall -c qa
 	fi
 
-	if [ ! -s "$HOME/.vim" ]; then
-		ln -s ${VIM_PREFIX} $HOME/.vim
+	if [ -L "$VIM_CONF" ]; then
+		rm "$VIM_CONF"
+		echo "Found old symlink and removed it..."
 	fi
+
+	ln -s ${VIM_PREFIX} $HOME/.vim
 }
 
 CONFIG_HELP () {
 	echo 'Usage: config.sh {install [prefix_path]|help}'
-	return $(($? || $#))
 }
 
 if [ $# -gt 0 ]; then
@@ -38,14 +41,14 @@ if [ $# -gt 0 ]; then
 	shift
 fi
 case ${OP:-} in
-	"install")
+	install)
 		CONFIG_INSTALL $@
 		;;
-	"help")
+	help)
 		CONFIG_HELP $@
 		;;
 	*)
 		CONFIG_HELP $@
-		exit $(($? || 1))
+		exit 1
 		;;
 esac
