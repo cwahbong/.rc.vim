@@ -3,7 +3,7 @@ if exists("b:did_ftplugin") || &filetype != "python"
 endif
 
 setlocal expandtab
-setlocal softtabstop=2
-setlocal tabstop=2
-setlocal shiftwidth=2
-setlocal textwidth=72
+setlocal softtabstop=4
+setlocal tabstop=4
+setlocal shiftwidth=4
+setlocal textwidth=80
