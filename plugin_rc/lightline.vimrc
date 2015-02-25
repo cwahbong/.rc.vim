@@ -37,6 +37,8 @@ function s:SpecialFileTypeByString(s)
 		return "NERDTree"
 	elseif a:s == "vundle"
 		return "Vundle"
+	elseif a:s == "tagbar"
+		return "Tagbar"
 	elseif a:s == "help"
 		return "Help"
 	else
