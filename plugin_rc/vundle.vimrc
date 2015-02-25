@@ -18,6 +18,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'itchyny/lightline.vim'
 Bundle 'SirVer/ultisnips'
 Bundle 'honza/vim-snippets'
+Bundle 'majutsushi/tagbar'
 
 " Color themes
 Bundle 'flazz/vim-colorschemes'
