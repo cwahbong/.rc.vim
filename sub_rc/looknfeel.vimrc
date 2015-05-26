@@ -35,4 +35,4 @@ autocmd ColorScheme * highlight! CursorLine cterm=NONE
 autocmd VimEnter,WinEnter,BufWinEnter * setlocal cursorline
 autocmd WinLeave * setlocal nocursorline
 
-colorscheme desertEx
+colorscheme desertEx_spellfix
