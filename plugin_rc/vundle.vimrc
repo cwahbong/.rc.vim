@@ -25,7 +25,7 @@ Bundle 'flazz/vim-colorschemes'
 
 " Language support
 Bundle 'cwahbong/LaTeX-Box'
-Bundle 'jnwhiteh/vim-golang'
+Bundle 'fatih/vim-go'
 Bundle 'vlaadbrain/gnuplot.vim'
 
 call vundle#end()
