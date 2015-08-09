@@ -1,6 +1,6 @@
 update:
 	git pull --rebase
-	vim -c BundleUpdate -c qa
+	vim --noplugin -c BundleUpdate -c qa
 
 BUNDLE_PATH = ./bundle
 
@@ -12,7 +12,7 @@ install:
 	else\
 		echo "Vundle clready cloned.";\
 	fi
-	vim -c BundleInstall -c qa
+	vim --noplugin -c BundleInstall -c qa
 
 Makefile: ; # Do not remake makefile.
 
