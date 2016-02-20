@@ -7,26 +7,26 @@ call vundle#begin()
 
 " let Vundle manage Vundle
 " REQUIRED
-Bundle 'gmarik/vundle'
+Plugin 'gmarik/vundle'
 
 " My own bundles
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'tpope/vim-fugitive'
-Bundle 'itchyny/lightline.vim'
-Bundle 'SirVer/ultisnips'
-Bundle 'honza/vim-snippets'
-Bundle 'majutsushi/tagbar'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'tpope/vim-fugitive'
+Plugin 'itchyny/lightline.vim'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'majutsushi/tagbar'
 
 " Color themes
-Bundle 'flazz/vim-colorschemes'
+Plugin 'flazz/vim-colorschemes'
 
 " Language support
-Bundle 'cwahbong/LaTeX-Box'
-Bundle 'fatih/vim-go'
-Bundle 'vlaadbrain/gnuplot.vim'
+Plugin 'cwahbong/LaTeX-Box'
+Plugin 'fatih/vim-go'
+Plugin 'vlaadbrain/gnuplot.vim'
 
 call vundle#end()
 
