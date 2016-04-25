@@ -29,6 +29,8 @@ Plugin 'flazz/vim-colorschemes'
 Plugin 'cwahbong/LaTeX-Box'
 Plugin 'fatih/vim-go'
 Plugin 'vlaadbrain/gnuplot.vim'
+Plugin 'rust-lang/rust.vim'
+Plugin 'cespare/vim-toml'
 
 call vundle#end()
 
