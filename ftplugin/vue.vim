@@ -1,4 +1,4 @@
-if exists("b:did_ftplugin") || &filetype != "javascript"
+if exists("b:did_ftplugin") || &filetype != "vue"
 	finish
 endif
 

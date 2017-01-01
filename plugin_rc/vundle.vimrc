@@ -31,6 +31,7 @@ Plugin 'fatih/vim-go'
 Plugin 'vlaadbrain/gnuplot.vim'
 Plugin 'rust-lang/rust.vim'
 Plugin 'cespare/vim-toml'
+Plugin 'posva/vim-vue'
 
 call vundle#end()
 
