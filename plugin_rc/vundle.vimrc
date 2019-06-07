@@ -3,6 +3,8 @@ filetype off
 " Init vundle
 set rtp+=~/.vim/bundle/vundle/
 
+let g:vundle_shallow_clones = 1
+
 call vundle#begin()
 
 " let Vundle manage Vundle
