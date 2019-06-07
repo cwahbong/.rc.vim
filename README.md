@@ -1,4 +1,5 @@
-# cwahbong's vim configuration
+dot-vim
+=======
 
 This configuration tries to deal with the followings, which are the essential
 things that should be achieved.
@@ -7,9 +8,11 @@ things that should be achieved.
 * Works well in different coding styles.
 * Do the works in least key strokes.
 
-# Installation
+Install
+-----
 
-    cd $HOME
-    git clone https://github.com/cwahbong/.vim
-    cd .vim
-    ./bootstrap.sh
+Install as an [ellipsis](https://github.com/ellipsis/ellipsis) package.
+
+```bash
+ellipsis install https://github.com/cwahbong/dot-vim
+```
